@@ -5,32 +5,71 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-	public static void checkValidFirstName(String firstName,String lastName) {
-		boolean isFirstName;
-		String firstNameRegex = "[a-zA-Z] {1,}";
-		String lastNameRegex = "[A-Z]{1}[a-z]{2,}";
-		Pattern patternObject = Pattern.compile(lastNameRegex);
-		if(lastName == null) {
-			isFirstName = false;
+	public static void checkValidEmail(String email) {
+		boolean isEmail;
+		String validEmail="^[a-zA-z]+[+ . -]?[0-9]*[a-zA-Z]*[@]{1}[a-zA-Z]+[.]{1}[a-zA-Z]+[.]?[a-zA-Z]*$";
+		Pattern patternObject = Pattern.compile(validEmail);
+		if(email == null) {
+			isEmail = false;
 		}
-		Matcher matcherObject = patternObject.matcher(lastName);
-		isFirstName = matcherObject.matches();
+		Matcher matcherObject = patternObject.matcher(email);
+		isEmail = matcherObject.matches();
 
-		if(isFirstName) {
-			System.out.println(lastName+" is an Valid Last Name");
-			System.exit(0);
+		if(isEmail) {
+			System.out.println(email+" is an Valid Email");
 		}
-		System.out.println(lastName+" is an Invaid Last Name");
+		else {
+			System.out.println(email+" is an Invaid Email");
+		}
 	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration ");
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter First Name:");
-		String firstName = sc.next();
-
-		System.out.println("Enter First Name:");
-		String lastName = sc.next();
-		checkValidFirstName(firstName,lastName);
+		String email = "govindsingh6498@gmail.com";
+		checkValidEmail(email);
+		email="abc@gmail.com";
+		checkValidEmail(email);
+		
+		email="abc@gmail.com.1a";
+		checkValidEmail(email);
+		email="abc@gmail.com.aa.au";
+		checkValidEmail(email);
+		email="abc-100@yahoo.com";
+		checkValidEmail(email);
+		email="abc.100@yahoo.com";
+		checkValidEmail(email);
+		email="abc111@abc.com";
+		checkValidEmail(email);
+		email="abc.100@abc.com.au";
+		checkValidEmail(email);
+		email="abc-100@abc.net";
+		checkValidEmail(email);
+		email="abc@gmail.com";
+		checkValidEmail(email);
+		email="abc@abc@gmail.com";
+		checkValidEmail(email);
+		email="abc.@gmail.com";
+		checkValidEmail(email);
+		email="abc..2002@gmail.com";
+		checkValidEmail(email);
+		email="abc@%*.com";
+		checkValidEmail(email);
+		email="abc()*@gmail.com";
+		checkValidEmail(email);
+		email=".abc@abc.com";
+		checkValidEmail(email);
+		email="abc123@.com.com";
+		checkValidEmail(email);
+		email="abc123@.com";
+		checkValidEmail(email);
+		email="abc+100@gmail.com ";
+		checkValidEmail(email);
+		email="abc123@gmail.a ";
+		checkValidEmail(email);
+		email="abc@.com.my";
+		checkValidEmail(email);
+		email="abc-100@yahoo.com";
+		checkValidEmail(email);
+		
 		
 	}
 }
