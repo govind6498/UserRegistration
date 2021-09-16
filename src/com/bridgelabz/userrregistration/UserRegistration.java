@@ -5,28 +5,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-	public static void checkValidPassword(String password) {
-		boolean isPassword;
-		String validPassword="^([a-zA-Z0-9]*[\\-\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\+\\.]*){8,}$";
-		Pattern patternObject = Pattern.compile(validPassword);
-		if(password == null) {
-			isPassword = false;
+	public static void checkValidPasswordUpper(String passwordUpper) {
+		boolean isPasswordUpper;
+		String validPasswordUpper="^(?=.*[A-Z])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$";
+		Pattern patternObject = Pattern.compile(validPasswordUpper);
+		if(passwordUpper == null) {
+			isPasswordUpper = false;
 		}
-		Matcher matcherObject = patternObject.matcher(password);
-		isPassword = matcherObject.matches();
+		Matcher matcherObject = patternObject.matcher(passwordUpper);
+		isPasswordUpper = matcherObject.matches();
 
-		if(isPassword) {
-			System.out.println(password+" is an Valid Password");
+		if(isPasswordUpper) {
+			System.out.println(passwordUpper+" is an Valid Password");
 		}
 		else {
-			System.out.println(password+" is an Invaid Password");
+			System.out.println(passwordUpper+" is an Invaid Password");
 		}
 	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration ");
-		String password = "@9197983*64309";
-		checkValidPassword(password);
-		password= "97 058769#452)3";
-		checkValidPassword(password);
+		String password = "akaaR#$@ou87";
+		checkValidPasswordUpper(password);
+		password= "97hruwd%&*&%@";
+		checkValidPasswordUpper(password);
 	}
 }
