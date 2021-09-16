@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 	public static void checkValidPasswordUpper(String passwordUpper) {
 		boolean isPasswordUpper;
-		String validPasswordUpper="^(?=.*[0-9])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$";
+		String validPasswordUpper="^(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$";
 		Pattern patternObject = Pattern.compile(validPasswordUpper);
 		if(passwordUpper == null) {
 			isPasswordUpper = false;
@@ -28,7 +28,7 @@ public class UserRegistration {
 		checkValidPasswordUpper(password);
 		password= "hruwd%&*&%@";
 		checkValidPasswordUpper(password);
-		password= "hru98wd%&*&%@";
+		password= "hru98wd";
 		checkValidPasswordUpper(password);
 		password= "hruwd%&*&%@";
 		checkValidPasswordUpper(password);
