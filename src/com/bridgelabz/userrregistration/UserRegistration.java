@@ -5,28 +5,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-	public static void checkValidMObileNumber(String moNumber) {
-		boolean ismoNumber;
-		String validMoNumber="^[0-9]{2}\\s{1}[1-9]{1}[0-9]{9}";
-		Pattern patternObject = Pattern.compile(validMoNumber);
-		if(moNumber == null) {
-			ismoNumber = false;
+	public static void checkValidPassword(String password) {
+		boolean isPassword;
+		String validPassword="^([a-zA-Z0-9]*[\\-\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\+\\.]*){8,}$";
+		Pattern patternObject = Pattern.compile(validPassword);
+		if(password == null) {
+			isPassword = false;
 		}
-		Matcher matcherObject = patternObject.matcher(moNumber);
-		ismoNumber = matcherObject.matches();
+		Matcher matcherObject = patternObject.matcher(password);
+		isPassword = matcherObject.matches();
 
-		if(ismoNumber) {
-			System.out.println(moNumber+" is an Valid MObile Number");
+		if(isPassword) {
+			System.out.println(password+" is an Valid Password");
 		}
 		else {
-			System.out.println(moNumber+" is an Invaid Mobile Number");
+			System.out.println(password+" is an Invaid Password");
 		}
 	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration ");
-		String moNumber = "91 9798364309";
-		checkValidMObileNumber(moNumber);
-		moNumber = "97 0587694523";
-		checkValidMObileNumber(moNumber);
+		String password = "@9197983*64309";
+		checkValidPassword(password);
+		password= "97 058769#452)3";
+		checkValidPassword(password);
 	}
 }
